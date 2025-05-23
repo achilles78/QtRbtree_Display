@@ -1,7 +1,36 @@
+//////////////////////////////////////////////////////////////////
+//
+//  Copyright(C), 2013-2016, GEC Tech. Co., Ltd.
+//
+//  File name: GPLE/ch03/3.3/head4tree.h
+//
+//  Author: Vincent Lin (林世霖)  微信公众号：秘籍酷
+//
+//  Date: 2016-3
+//  
+//  Description: 本文件为二叉树核心头文件。
+//               任何使用本二叉树结构算法的程序，在包含本头文件之前
+//               都需要将如下宏定义成二叉树节点需要表达的数据类型：
+//
+//                     TREE_NODE_DATATYPE
+//
+//               否则二叉树的节点数据类型一律默认为 int
+//
+//  GitHub: github.com/vincent040   Bug Report: 2437231462@qq.com
+//
+//////////////////////////////////////////////////////////////////
 
 #ifndef _HEAD4TREE_H_
 #define _HEAD4TREE_H_
-
+#ifndef RB
+#define RB
+#endif
+/*
+ * Any application applying this linked-tree data structure should
+ * define the macro "TREE_NODE_DATATYPE" before include this head
+ * file, otherwise, the macro will be defined to 'int' as follow.
+ *
+*/
 
 #ifndef TREE_NODE_DATATYPE
 #define TREE_NODE_DATATYPE int
@@ -17,9 +46,7 @@
 		})
 
 typedef TREE_NODE_DATATYPE tn_datatype;
-#ifndef RB
-#define RB
-#endif
+
 #ifdef RB
 #define RED   0
 #define BLACK 1

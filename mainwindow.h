@@ -1,10 +1,13 @@
 ﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QWidget>
 #include <QMainWindow>
 #include"binarytree.h"
 #include<QInputDialog>
 #include<QPainter>
+#include <QScrollArea>
+#include "drawingwidget.h"
 #include"mydialog.h"
 
 
@@ -34,10 +37,16 @@ private slots:
 
     void on_actionReCreat_triggered();      //前序和中序建树
 
+
+    void on_actionRandom_triggered();
+
+    //void random_generate();
 private:
     Ui::MainWindow *ui;
     BinaryTree * My_Tree;                   //树
-    MyDialog *My_Dialog;                    //自己写的对话框，用于前序和中序建树
+    MyDialog *My_Dialog;//自己写的对话框，用于前序和中序建树
+    DrawingWidget * Drawing_Widget;
+    QScrollArea * ScrollWidget;
 
 };
 

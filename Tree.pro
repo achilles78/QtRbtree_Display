@@ -22,19 +22,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+    drawingwidget.cpp \
     ibintree.cpp \
         main.cpp \
         mainwindow.cpp \
     binarytree.cpp \
-    mydialog.cpp
+    mydialog.cpp \
+    rbtree/rb_common.cpp \
+    rbtree/rb_delete.cpp \
+    rbtree/rb_insert.cpp \
+    rbtree/travel.cpp \
+    rbtree/queue.cpp
 
 HEADERS += \
+    drawingwidget.h \
     ibintree.h \
         mainwindow.h \
     binarytree.h \
     mydialog.h \
+    rbtree/include/head4rb.h \
+    rbtree/include/head4tree.h \
     rbtree/include/commonheader.h \
-    rbtree/include/head4tree.h
+    rbtree/include/head4queue.h
 
 FORMS += \
         mainwindow.ui \

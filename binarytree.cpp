@@ -138,7 +138,7 @@ void BinaryTree::LevelOrder()
     while(!Q.isEmpty())
     {
         p=Q.dequeue();
-        levelStr.append(p->data.toString());
+        levelNode.append(p);
         if(p->left!=nullptr)
             Q.enqueue(p->left);
         if(p->right!=nullptr)
@@ -158,7 +158,7 @@ void BinaryTree::setMyPoints()
 
     QQueue<BinTreeNode *>Q;         //调用队列
     BinTreeNode *p=root;
-    root->setpoint(QPoint(500,75));  //为根节点设置坐标
+    root->setpoint(QPoint(1920,75));  //为根节点设置坐标
     Q.enqueue(root);
     Mypoints[i]=root->point;
 
@@ -207,7 +207,7 @@ void BinaryTree::swapTree()
     preStr.clear();
     inStr.clear();
     postStr.clear();
-    levelStr.clear();
+    levelNode.clear();
     keyParent.clear();
 
     this->swapTree(root);
@@ -239,7 +239,7 @@ void BinaryTree::clear()
     preStr.clear();
     inStr.clear();
     postStr.clear();
-    levelStr.clear();
+    levelNode.clear();
     keyParent.clear();
 }
 
@@ -259,9 +259,9 @@ QString BinaryTree::getPostStr()
     return postStr;
 }
 
-QString BinaryTree::getLevelStr()
+QVector<BinTreeNode*>  BinaryTree::getLevelStr()
 {
-    return levelStr;
+    return levelNode;
 }
 
 QPoint *BinaryTree::getPoints()
@@ -391,7 +391,7 @@ void BinaryTree::CreateBinTree(linktree ptreenode, BinTreeNode *&Node)
 {
     if (nullptr!=ptreenode)
     {
-        Node = new BinTreeNode(ptreenode->data);
+        Node = new BinTreeNode(ptreenode);
         Treesize++;
         this->CreateBinTree(ptreenode->lchild,Node->left);
         this->CreateBinTree(ptreenode->rchild,Node->right);
@@ -427,4 +427,11 @@ BinaryTree::BinaryTree(linktree treeroot)
 {
     Treesize=0;
     this->CreateBinTree(treeroot,root);
+    isright=true;
+    //进行遍历
+    this->setMyPoints();
+    this->preOrder();
+    this->inOrder();
+    this->postOrder();
+    this->LevelOrder();
 }
